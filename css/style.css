@@ -1,0 +1,12 @@
+#board{
+	width:320px;
+	height:320px;
+}
+
+.grid-unit {
+	width:100px;
+	height: 100px;
+	border:1px solid #333;
+	display:block;
+	float:left;
+}
