@@ -4,6 +4,9 @@ var body = document.querySelector('body');
 var player1 = {id: 'p1', name: 'Player 1'};
 var player2 = {id: 'p2', name: 'Player 2'};
 
+var xMark = "<i class='fa fa-times'></i>";
+var oMark = "<i class='fa fa-circle-o'></i>";
+
 //start with player1's turn
 var whoseTurn = player1;
 
@@ -69,11 +72,11 @@ function playMove(){
 		checkForWinner();
 
 		if(whoseTurn == player1) {
-			this.innerHTML = "<i class='fa fa-times'></i>";
+			this.innerHTML = xMark;
 			whoseTurn = player2;
 
 		} else {
-			this.innerHTML = "<i class='fa fa-circle-o'></i>";
+			this.innerHTML = oMark;
 			whoseTurn = player1;
 		}
 	}
