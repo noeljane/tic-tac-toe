@@ -1,3 +1,5 @@
+var body = document.querySelector('body');
+
 //create player objects
 var player1 = {id: 'p1', name: 'Player 1'};
 var player2 = {id: 'p2', name: 'Player 2'};
@@ -23,6 +25,9 @@ function markPlayed(what,who) {
 //Announce Winner
 function announceWinner(player) {
 	console.log(player + ' is the WINNER!');
+
+
+	body.className = 'party-time';
 }
 
 //lock the board
@@ -79,6 +84,9 @@ function initBoard() {
 		//reset board and square classes to ""
 		board[i].className = "";
 		board[i].innerHTML = "";
+
+		//remove party-time:
+		body.className = "";
 
 		//add click listeners to all squares:
 		board[i].addEventListener('click', playMove);
