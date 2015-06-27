@@ -22,14 +22,6 @@ function markPlayed(what,who) {
 	console.log(what + " was played by " + who.name);
 }
 
-//Announce Winner
-function announceWinner(player) {
-	console.log(player + ' is the WINNER!');
-
-
-	body.className = 'party-time';
-}
-
 //lock the board
 function lockBoard(){
 	for(var i = 0; i < board.length; i ++) {
@@ -37,21 +29,29 @@ function lockBoard(){
 	}
 }
 
+//Announce Winner
+function announceWinner(player) {
+	console.log(player + ' is the WINNER!');
+
+	//body.className = 'party-time';
+
+	lockBoard();
+}
+
+
+
 function checkForWinner() {
 	//check rows
 	if((board[0].p == board[1].p && board[0].p == board[2].p) || (board[3].p == board[4].p && board[3].p == board[5].p) || board[6].p == board[7].p && board[6].p == board[8].p) {
 		announceWinner(whoseTurn.name);
-		lockBoard();
 	}
 	//check columns
 	else if((board[0].p == board[3].p && board[0].p == board[6].p) || (board[1].p == board[4].p && board[1].p == board[7].p) || (board[2].p == board[5].p && board[2].p == board[8].p)) {
 		announceWinner(whoseTurn.name);
-		lockBoard();
 	}
 	//check diagonals
 	else if((board[0].p == board[4].p && board[0].p == board[8].p) || (board[2].p == board[4].p && board[2].p == board[6].p)) {
 		announceWinner(whoseTurn.name);
-		lockBoard();
 	}
 	//check cats cradle
 	else if(plays == gridCount) {
@@ -100,4 +100,3 @@ function initBoard() {
 
 clearBtn.addEventListener('click', initBoard);
 initBoard();
-
