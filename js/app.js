@@ -46,6 +46,12 @@ function announceWinner(player) {
 	lockBoard();
 }
 
+//Announce Tie
+function announceTie() {
+	h1.innerText = ("Tie game!");
+	lockBoard();
+}
+
 
 
 function checkForWinner() {
@@ -63,7 +69,7 @@ function checkForWinner() {
 	}
 	//check cats cradle
 	else if(plays == gridCount) {
-		h1.innerText = ("Tie game!")
+		announceTie();
 	}
 }
 
