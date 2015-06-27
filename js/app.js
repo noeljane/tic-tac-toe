@@ -1,15 +1,20 @@
+var gameName = 'Tic Tac Toe';
+
 var body = document.querySelector('body');
+var h1 = document.querySelector('h1');
+
 
 //create player objects
 var player1 = {id: 'p1', name: 'Player 1'};
 var player2 = {id: 'p2', name: 'Player 2'};
 
-var xMark = "<i class='fa fa-times'></i>";
-var oMark = "<i class='fa fa-circle-o'></i>";
+var xMark = '<i class="fa fa-times"></i>';
+var oMark = '<i class="fa fa-circle-o"></i>';
 
 //start with player1's turn
 var whoseTurn = player1;
 
+//set clear button
 var clearBtn = document.querySelector('#clear');
 
 //build the board grid collection
@@ -30,14 +35,14 @@ function lockBoard(){
 	for(var i = 0; i < board.length; i ++) {
 		board[i].removeEventListener('click', playMove);
 	}
+
+	clearBtn.className = 'cta';
 }
 
 //Announce Winner
 function announceWinner(player) {
-	console.log(player + ' is the WINNER!');
-
-	//body.className = 'party-time';
-
+	//console.log(player + ' is the winner!');
+	h1.innerText = (player + ' wins!');
 	lockBoard();
 }
 
@@ -58,7 +63,7 @@ function checkForWinner() {
 	}
 	//check cats cradle
 	else if(plays == gridCount) {
-		console.log("Cat's Cradle!!!");
+		h1.innerText = ("Tie game!")
 	}
 }
 
@@ -80,17 +85,19 @@ function playMove(){
 			this.innerHTML = oMark;
 			whoseTurn = player1;
 		}
-
-		//add animation class after rendering the mark (X or O)
-		//this.firstChild.className += ' animated';
 	}
 }
 
 function initBoard() {
 	for(var i = 0; i < board.length; i ++) {
+		//reset h1 to default text
+		h1.innerText = gameName;
+
 		//reset board and square classes to ""
 		board[i].className = "";
 		board[i].innerHTML = "";
+
+		clearBtn.className = "";
 
 		//remove party-time:
 		body.className = "";
