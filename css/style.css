@@ -16,6 +16,32 @@
 i.fa {
 	font-size:100px;
 	line-height:100px;
+	/*opacity:0;*/
+	-webkit-animation: enterMark .5s;
+	-o-animation: enterMark .5s;
+	animation: enterMark .5s;
+}
+
+@keyframes enterMark
+{
+	0% {font-size:50px; opacity:0;
+		animation-timing-function:ease-in;}
+
+	50% {font-size:110px;}
+
+	100% {font-size:100px; opacity:1;
+		animation-timing-function:ease-out;}
+}
+
+@-webkit-keyframes enterMark
+{
+	0% {font-size:50px; opacity:0;
+		animation-timing-function:ease-in;}
+
+	50% {font-size:110px;}
+
+	100% {font-size:100px; opacity:1;
+		animation-timing-function:ease-out;}
 }
 
 /*party time*/

@@ -58,7 +58,7 @@ function checkForWinner() {
 	}
 	//check cats cradle
 	else if(plays == gridCount) {
-		console.log("It's a tie!");
+		console.log("Cat's Cradle!!!");
 	}
 }
 
@@ -69,6 +69,7 @@ function playMove(){
 
 		//add 1 to number of plays
 		plays ++;
+
 		checkForWinner();
 
 		if(whoseTurn == player1) {
@@ -79,6 +80,9 @@ function playMove(){
 			this.innerHTML = oMark;
 			whoseTurn = player1;
 		}
+
+		//add animation class after rendering the mark (X or O)
+		//this.firstChild.className += ' animated';
 	}
 }
 
