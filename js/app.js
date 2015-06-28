@@ -1,13 +1,14 @@
-var gameName = 'Tic Tac Toe';
+var gameName = 'Tic Tac Toe!';
 
 var body = document.querySelector('body');
 var h1 = document.querySelector('h1');
 
 
-//create player objects
+//create player objects, so that in the future, players can type in their names and make a name association in-game.
 var player1 = {id: 'p1', name: 'Player 1'};
 var player2 = {id: 'p2', name: 'Player 2'};
 
+//html for "X" and "O" (from font-awesome icons)
 var xMark = '<i class="fa fa-times"></i>';
 var oMark = '<i class="fa fa-circle-o"></i>';
 
@@ -26,13 +27,11 @@ function markPlayed(what,who) {
 	what.p = who.id;
 	what.className = 'played by ';
 	what.className += who.id;
-
-	console.log(what + " was played by " + who.name);
 }
 
 //lock the board
 function lockBoard(){
-	for(var i = 0; i < board.length; i ++) {
+	for(var i = 0; i < gridCount; i ++) {
 		board[i].removeEventListener('click', playMove);
 	}
 
@@ -51,8 +50,6 @@ function announceTie() {
 	h1.innerText = ("Tie game!");
 	lockBoard();
 }
-
-
 
 function checkForWinner() {
 	//check rows
@@ -95,7 +92,7 @@ function playMove(){
 }
 
 function initBoard() {
-	for(var i = 0; i < board.length; i ++) {
+	for(var i = 0; i < gridCount; i ++) {
 		//reset h1 to default text
 		h1.innerText = gameName;
 
