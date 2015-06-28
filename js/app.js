@@ -34,7 +34,6 @@ function lockBoard(){
 	for(var i = 0; i < gridCount; i ++) {
 		board[i].removeEventListener('click', playMove);
 	}
-
 	clearBtn.className = 'cta';
 }
 
@@ -74,16 +73,12 @@ function checkForWinner() {
 function playMove(){
 	if(!this.classList.contains('played')){
 		markPlayed(this, whoseTurn);
-
-		//add 1 to number of plays
+		//add 1 to number of plays:
 		plays ++;
-
 		checkForWinner();
-
 		if(whoseTurn == player1) {
 			this.innerHTML = xMark;
 			whoseTurn = player2;
-
 		} else {
 			this.innerHTML = oMark;
 			whoseTurn = player1;
@@ -91,29 +86,25 @@ function playMove(){
 	}
 }
 
-function initBoard() {
+//clear board, reset
+function initTicTacToe() {
 	for(var i = 0; i < gridCount; i ++) {
-		//reset h1 to default text
+		//reset h1 to default gameName text:
 		h1.innerText = gameName;
-
 		//reset board and square classes to ""
 		board[i].className = "";
 		board[i].innerHTML = "";
-
+		//stop animation class from clear button:
 		clearBtn.className = "";
-
-		//remove party-time:
-		body.className = "";
-
 		//add click listeners to all squares:
 		board[i].addEventListener('click', playMove);
-
 		//make sure none of the board[i].p are equivalent:
 		board[i].p = i;
 	}
 	plays = 0;
 	whoseTurn = player1;
+
+	clearBtn.addEventListener('click', initTicTacToe);
 }
 
-clearBtn.addEventListener('click', initBoard);
-initBoard();
+initTicTacToe();

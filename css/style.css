@@ -18,7 +18,6 @@ body {
 }
 
 h1 {
-
 	text-align:center;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -64,7 +63,6 @@ i.fa {
 	cursor: pointer;
 	font-family: 'edmondsansbold', sans-serif;
 	line-height: 30px;
-
 	-webkit-transition: all .3s;
 	-moz-transition:  all .3s;
 	-o-transition:  all .3s;
@@ -89,7 +87,7 @@ i.fa {
 }
 
 
-/*individual squares*/
+/*square borders for board outline*/
 #board div:nth-child(1),#board div:nth-child(2),#board div:nth-child(4),#board div:nth-child(5),#board div:nth-child(7), #board div:nth-child(8) {
 	border-right-width:3px;
 }
@@ -136,3 +134,4 @@ i.fa {
 	0% {font-size:24px;
 		animation-timing-function: ease-out;}
 }
+/**/
