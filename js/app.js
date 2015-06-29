@@ -15,8 +15,8 @@ var player1 = {id: 'p1', name: 'Player 1'};
 var player2 = {id: 'p2', name: 'Player 2'};
 
 //html for "X" and "O" (from font-awesome icons)
-var xMark = '<i class="fa fa-times"></i>';
-var oMark = '<i class="fa fa-circle-o"></i>';
+var xMark = '<i class="fa fa-times xmark"></i>';
+var oMark = '<i class="fa fa-circle-o omark"></i>';
 
 //start with player1's turn
 var whoseTurn = player1;

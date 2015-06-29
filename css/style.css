@@ -25,8 +25,8 @@ h1 {
 }
 
 #board{
-	width:306px;
-	height:306px;
+	width:310px;
+	height:310px;
 	margin:0 auto 0;
 }
 
@@ -41,11 +41,18 @@ h1 {
 }
 
 i.fa {
-	font-size:100px;
+	font-size:95px;
 	line-height:100px;
 	-webkit-animation: enterMark .5s;
 	-o-animation: enterMark .5s;
 	animation: enterMark .5s;
+}
+
+i.xmark {
+	color:#75A3D1;
+}
+i.omark {
+	color:#FFD452;
 }
 
 #info {
@@ -53,7 +60,7 @@ i.fa {
 	margin-top:40px;
 }
 
-#clear {
+#btn-clear-board {
 	border: none;
 	background: #E05151;
 	color: #FFF;
@@ -69,30 +76,23 @@ i.fa {
 	transition:  all .3s;
 }
 
-#clear:hover {
+#btn-clear-board:hover {
 	background:#AE4141;
 }
 
-#clear.cta {
+#btn-clear-board.cta {
 	-webkit-animation: playAgain 1s infinite;
 	-o-animation: playAgain 1s infinite;
 	animation: playAgain 1s infinite;
 }
 
 
-
-/*party time*/
-.party-time {
-	background:url('../images/party-time.gif');
-}
-
-
 /*square borders for board outline*/
 #board div:nth-child(1),#board div:nth-child(2),#board div:nth-child(4),#board div:nth-child(5),#board div:nth-child(7), #board div:nth-child(8) {
-	border-right-width:3px;
+	border-right-width:5px;
 }
 #board div:nth-child(4),#board div:nth-child(5),#board div:nth-child(6),#board div:nth-child(7),#board div:nth-child(8),#board div:nth-child(9) {
-	border-top-width:3px;
+	border-top-width:5px;
 }
 
 
@@ -104,7 +104,7 @@ i.fa {
 
 	50% {font-size:110px;}
 
-	100% {font-size:100px; opacity:1;
+	100% {font-size:95px; opacity:1;
 		animation-timing-function:ease-out;}
 }
 
@@ -115,7 +115,7 @@ i.fa {
 
 	50% {font-size:110px;}
 
-	100% {font-size:100px; opacity:1;
+	100% {font-size:95px; opacity:1;
 		animation-timing-function:ease-out;}
 }
 
