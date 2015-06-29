@@ -114,13 +114,3 @@ function initTicTacToe() {
 }
 
 initTicTacToe();
-
-function addPlayerName(){
-	player1.name = inputPlayerName.value;
-	console.log(player1.name);
-}
-var inputPlayerName = document.querySelector('#input-player-name');
-
-
-var submitPlayerName = document.querySelector('#submit-player-name');
-submitPlayerName.addEventListener('click',addPlayerName);
