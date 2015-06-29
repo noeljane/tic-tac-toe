@@ -28,7 +28,6 @@ var loser = null;
 
 //start with player1's turn
 var whoseTurn = player1;
-console.log(whoseTurn.name + "'s turn.");
 
 //set clear button
 var clearBtn = document.querySelector('#btn-clear-board');
@@ -38,6 +37,10 @@ var clearBtn = document.querySelector('#btn-clear-board');
 function playMove(){
 	if(!this.classList.contains('played')){
 		markPlayed(this, whoseTurn);
+	}
+	if(plays == 1) {
+		clearBtn.addEventListener('click', initTicTacToe);
+		clearBtn.className = 'btn-clear-active';
 	}
 }
 
@@ -142,7 +145,7 @@ function initTicTacToe() {
 	board.className = "";
 
 	//stop animation class from clear button:
-	clearBtn.className = "";
+	clearBtn.className = "btn-clear-inactive";
 
 	//reset board and square classes to ""
 	for(var i = 0; i < gridCount; i ++) {
@@ -157,7 +160,6 @@ function initTicTacToe() {
 	//Reset play count, player turn to Player 1, and reset clear btn
 	plays = 0;
 	whoseTurn = player1;
-	clearBtn.addEventListener('click', initTicTacToe);
 }
 
 initTicTacToe();
