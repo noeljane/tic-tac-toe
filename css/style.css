@@ -40,12 +40,17 @@ h1 {
 	cursor:pointer;
 }
 
+.locked div{
+	cursor:default!important;
+}
+
 i.fa {
 	font-size:95px;
 	line-height:100px;
 	-webkit-animation: enterMark .5s;
 	-o-animation: enterMark .5s;
 	animation: enterMark .5s;
+
 }
 
 i.xmark {
@@ -53,6 +58,21 @@ i.xmark {
 }
 i.omark {
 	color:#FFD452;
+}
+
+.winner {
+	-webkit-animation: winnerDances 2s linear infinite!important;
+	-o-animation: winnerDances 2s linear infinite!important;
+	animation: winnerDances 2s linear infinite!important;
+}
+
+.loser {
+	font-size:60px!important;
+	color:#999!important;
+	-webkit-transition: all .3s;
+	-moz-transition:  all .3s;
+	-o-transition:  all .3s;
+	transition:  all .3s;
 }
 
 #info {
@@ -85,7 +105,6 @@ i.omark {
 	-o-animation: playAgain 1s infinite;
 	animation: playAgain 1s infinite;
 }
-
 
 /*square borders for board outline*/
 #board div:nth-child(1),#board div:nth-child(2),#board div:nth-child(4),#board div:nth-child(5),#board div:nth-child(7), #board div:nth-child(8) {
@@ -134,4 +153,91 @@ i.omark {
 	0% {font-size:24px;
 		animation-timing-function: ease-out;}
 }
+
+/*winner dances*/
+@-webkit-keyframes winnerDances {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+
+	10%, 20% {
+		-webkit-transform: scale(.9) rotate(-8deg);
+		transform: scale(.9) rotate(-8deg);
+	}
+
+	30%, 50%, 70% {
+		-webkit-transform: scale(1.3) rotate(8deg);
+		transform: scale(1.3) rotate(8deg);
+	}
+
+	40%, 60% {
+		-webkit-transform: scale(1.3) rotate(-8deg);
+		transform: scale(1.3) rotate(-8deg);
+	}
+
+	80% {
+		-webkit-transform: scale(1) rotate(0deg);
+		transform: scale(1) rotate(0);
+		animation-timing-function: ease-out;
+	}
+}
+
+@keyframes winnerDances {
+	0% {
+		-webkit-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1);
+	}
+
+	10%, 20% {
+		-webkit-transform: scale(.9) rotate(-8deg);
+		-ms-transform: scale(.9) rotate(-8deg);
+		transform: scale(.9) rotate(-8deg);
+		animation-timing-function: ease-out;
+	}
+
+	30%, 50%, 70% {
+		-webkit-transform: scale(1.3) rotate(8deg);
+		-ms-transform: scale(1.3) rotate(8deg);
+		transform: scale(1.3) rotate(8deg);
+	}
+
+	40%, 60% {
+		-webkit-transform: scale(1.3) rotate(-8deg);
+		-ms-transform: scale(1.3) rotate(-8deg);
+		transform: scale(1.3) rotate(-8deg);
+	}
+
+	80% {
+		-webkit-transform: scale(1) rotate(0);
+		-ms-transform: scale(1) rotate(0);
+		transform: scale(1) rotate(0);
+		animation-timing-function: ease-out;
+	}
+}
+
+/*loser shrinks*/
+@keyframes loserShrinks {
+	0% {font-size:95px;
+		animation-timing-function:ease-in;}
+
+	50% {font-size:110px;}
+
+	100% {font-size:50px;
+		animation-timing-function:ease-out;}
+}
+
+@-webkit-keyframes loserShrinks {
+	0% {font-size: 95px;
+		animation-timing-function: ease-in;}
+
+	50% {font-size: 110px;}
+
+	100% {font-size: 50px;
+		animation-timing-function: ease-out;}
+}
+
+
+
 /**/
