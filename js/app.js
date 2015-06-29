@@ -105,7 +105,7 @@ function announceWinner(player) {
 		loser = player1;
 	}
 
-	//Loop through squares and attach winner/loser classes to each
+	//Loop through square divs and attach winner/loser classes to each
 	for(i = 0; i < squares.length; i ++) {
 		if(squares[i].classList.contains(winner.id)){
 			squares[i].firstChild.className += ' winner';
