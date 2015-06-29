@@ -22,7 +22,7 @@ var oMark = '<i class="fa fa-circle-o"></i>';
 var whoseTurn = player1;
 
 //set clear button
-var clearBtn = document.querySelector('#clear');
+var clearBtn = document.querySelector('#btn-clear-board');
 
 //build the board grid collection
 var squares = document.querySelectorAll('#board div');
