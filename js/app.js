@@ -17,13 +17,14 @@ var gridCount = squares.length;
 var player1 = {id: 'p1', name: 'Player 1'};
 var player2 = {id: 'p2', name: 'Player 2'};
 
+//html for "X" and "O" (from font-awesome icons) assigned as properties of the player objects
+player1.marker = '<i class="fa fa-times xmark"></i>';
+player2.marker = '<i class="fa fa-circle-o omark"></i>';
+
 //create empty winner / loser objects for use in announceWinner()
 var winner = null;
 var loser = null;
 
-//html for "X" and "O" (from font-awesome icons)
-var xMark = '<i class="fa fa-times xmark"></i>';
-var oMark = '<i class="fa fa-circle-o omark"></i>';
 
 //start with player1's turn
 var whoseTurn = player1;
@@ -52,9 +53,9 @@ function markPlayed(what,who) {
 
 	//add an 'X' or 'O' to the square
 	if(who == player1) {
-		what.innerHTML = xMark;
+		what.innerHTML = player1.marker;
 	} else {
-		what.innerHTML = oMark;
+		what.innerHTML = player2.marker;
 	}
 
 	//add 1 to number of plays:
