@@ -2,6 +2,12 @@ var gameName = 'Tic Tac Toe!';
 
 var body = document.querySelector('body');
 var h1 = document.querySelector('h1');
+var board = document.querySelector('#board');
+
+//generate divs
+for(i = 0; i < 9; i ++){
+	board.innerHTML += '<div></div>';
+}
 
 
 //create player objects, so that in the future, players can type in their names and make a name association in-game.
@@ -19,8 +25,8 @@ var whoseTurn = player1;
 var clearBtn = document.querySelector('#clear');
 
 //build the board grid collection
-var board = document.querySelectorAll('#board div');
-var gridCount = board.length;
+var squares = document.querySelectorAll('#board div');
+var gridCount = squares.length;
 
 //square is played
 function markPlayed(what,who) {
@@ -32,7 +38,7 @@ function markPlayed(what,who) {
 //lock the board
 function lockBoard(){
 	for(var i = 0; i < gridCount; i ++) {
-		board[i].removeEventListener('click', playMove);
+		squares[i].removeEventListener('click', playMove);
 	}
 	clearBtn.className = 'cta';
 }
@@ -52,15 +58,15 @@ function announceTie() {
 
 function checkForWinner() {
 	//check rows
-	if((board[0].p == board[1].p && board[0].p == board[2].p) || (board[3].p == board[4].p && board[3].p == board[5].p) || board[6].p == board[7].p && board[6].p == board[8].p) {
+	if((squares[0].p == squares[1].p && squares[0].p == squares[2].p) || (squares[3].p == squares[4].p && squares[3].p == squares[5].p) || squares[6].p == squares[7].p && squares[6].p == squares[8].p) {
 		announceWinner(whoseTurn.name);
 	}
 	//check columns
-	else if((board[0].p == board[3].p && board[0].p == board[6].p) || (board[1].p == board[4].p && board[1].p == board[7].p) || (board[2].p == board[5].p && board[2].p == board[8].p)) {
+	else if((squares[0].p == squares[3].p && squares[0].p == squares[6].p) || (squares[1].p == squares[4].p && squares[1].p == squares[7].p) || (squares[2].p == squares[5].p && squares[2].p == squares[8].p)) {
 		announceWinner(whoseTurn.name);
 	}
 	//check diagonals
-	else if((board[0].p == board[4].p && board[0].p == board[8].p) || (board[2].p == board[4].p && board[2].p == board[6].p)) {
+	else if((squares[0].p == squares[4].p && squares[0].p == squares[8].p) || (squares[2].p == squares[4].p && squares[2].p == squares[6].p)) {
 		announceWinner(whoseTurn.name);
 	}
 	//check cats cradle
@@ -92,14 +98,14 @@ function initTicTacToe() {
 		//reset h1 to default gameName text:
 		h1.innerText = gameName;
 		//reset board and square classes to ""
-		board[i].className = "";
-		board[i].innerHTML = "";
+		squares[i].className = "";
+		squares[i].innerHTML = "";
 		//stop animation class from clear button:
 		clearBtn.className = "";
 		//add click listeners to all squares:
-		board[i].addEventListener('click', playMove);
+		squares[i].addEventListener('click', playMove);
 		//make sure none of the board[i].p are equivalent:
-		board[i].p = i;
+		squares[i].p = i;
 	}
 	plays = 0;
 	whoseTurn = player1;
@@ -108,3 +114,13 @@ function initTicTacToe() {
 }
 
 initTicTacToe();
+
+function addPlayerName(){
+	player1.name = inputPlayerName.value;
+	console.log(player1.name);
+}
+var inputPlayerName = document.querySelector('#input-player-name');
+
+
+var submitPlayerName = document.querySelector('#submit-player-name');
+submitPlayerName.addEventListener('click',addPlayerName);
