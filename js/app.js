@@ -135,10 +135,10 @@ $(function(){
 	//Lock the board
 	function lockBoard(){
 		for(var i = 0; i < gridCount; i ++) {
-			squares[i].removeEventListener('click', playMove);
+			$(squares[i]).off('click', playMove);
 		}
 		$(clearBtn).addClass('cta');
-		board.className += 'locked';
+		$(board).addClass('locked');
 	}
 
 	//Clear board, reset
