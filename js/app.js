@@ -1,13 +1,13 @@
 $(function(){
 	var gameName = 'Tic Tac Toe!';
 
-	var body = document.querySelector('body');
-	var h1 = document.querySelector('h1');
-	var board = document.querySelector('#board');
+	var body = $('body');
+	var h1 = $('h1');
+	var board = $('#board');
 
 	//generate divs
 	for(i = 0; i < 9; i ++){
-		board.innerHTML += '<div></div>';
+		$(board).append('<div></div>');
 	}
 
 	//build the board grid collection
