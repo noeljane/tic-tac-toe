@@ -23,16 +23,18 @@ $(function(){
 	player1.marker = '<i class="fa fa-times xmark"></i>';
 	player2.marker = '<i class="fa fa-circle-o omark"></i>';
 
+	//using jQuery, select an object's properties ENTIRELY from within the jQuery selector:
+	//console.log($(player1.marker));
+
 	//create empty winner / loser objects for use in announceWinner()
 	var winner = null;
 	var loser = null;
-
 
 	//start with player1's turn
 	var whoseTurn = player1;
 
 	//set clear button
-	var clearBtn = document.querySelector('#btn-clear-board');
+	var clearBtn = $('#btn-clear-board');
 
 
 	//make a move
@@ -41,8 +43,10 @@ $(function(){
 			markPlayed(this, whoseTurn);
 		}
 		if(plays == 1) {
-			clearBtn.addEventListener('click', initTicTacToe);
-			clearBtn.className = 'btn-clear-active';
+			$(clearBtn).on('click',initTicTacToe);
+			//$(clearBtn).click(initTicTacToe);
+			$(clearBtn).removeClass();
+			$(clearBtn).addClass('btn-clear-active');
 		}
 	}
 
@@ -133,7 +137,7 @@ $(function(){
 		for(var i = 0; i < gridCount; i ++) {
 			squares[i].removeEventListener('click', playMove);
 		}
-		clearBtn.className = 'cta';
+		$(clearBtn).addClass('cta');
 		board.className += 'locked';
 	}
 
@@ -147,7 +151,8 @@ $(function(){
 		board.className = "";
 
 		//stop animation class from clear button:
-		clearBtn.className = "btn-clear-inactive";
+		$(clearBtn).removeClass();
+		$(clearBtn).addClass('btn-clear-inactive');
 
 		//reset board and square classes to ""
 		for(var i = 0; i < gridCount; i ++) {
