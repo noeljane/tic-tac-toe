@@ -23,9 +23,6 @@ $(function(){
 	player1.marker = '<i class="fa fa-times xmark"></i>';
 	player2.marker = '<i class="fa fa-circle-o omark"></i>';
 
-	//using jQuery, select an object's properties ENTIRELY from within the jQuery selector:
-	//console.log($(player1.marker));
-
 	//create empty winner / loser objects for use in announceWinner()
 	var winner = null;
 	var loser = null;
@@ -36,10 +33,13 @@ $(function(){
 	//set clear button
 	var clearBtn = $('#btn-clear-board');
 
+	//initial number of plays:
+	var plays = 0;
+
 
 	//make a move
 	function playMove(){
-		if(!this.classList.contains('played')){
+		if(!$(this).hasClass('played')){
 			markPlayed(this, whoseTurn);
 		}
 		if(plays == 1) {
@@ -49,7 +49,6 @@ $(function(){
 			$(clearBtn).addClass('btn-clear-active');
 		}
 	}
-
 
 	//square is played
 	function markPlayed(what,who) {
@@ -72,8 +71,6 @@ $(function(){
 
 		checkForWinner();
 	}
-
-
 
 	function checkForWinner() {
 		//check rows for a winner
@@ -116,13 +113,15 @@ $(function(){
 		}
 
 		//Loop through square divs and attach winner/loser classes to each
-		for(i = 0; i < squares.length; i ++) {
-			if(squares[i].classList.contains(winner.id)){
-				$(squares[i]).children('i').addClass('winner');
-			} else if(squares[i].classList.contains(loser.id)) {
-				$(squares[i]).children('i').addClass('loser');
+		$.each(squares, function(i, square) {
+			if($(square).hasClass(winner.id)) {
+				$(square).children('i').addClass('winner');
+			} else if($(square).hasClass(loser.id)) {
+				$(square).children('i').addClass('loser');
 			}
-		}
+		});
+
+
 		lockBoard();
 	}
 
@@ -134,16 +133,15 @@ $(function(){
 
 	//Lock the board
 	function lockBoard(){
-		for(var i = 0; i < gridCount; i ++) {
-			$(squares[i]).off('click', playMove);
-		}
+		$.each(squares, function(i, square){
+			$(square).off('click', playMove);
+		});
 		$(clearBtn).addClass('cta');
 		$(board).addClass('locked');
 	}
 
 	//Clear board, reset
 	function initTicTacToe() {
-
 		//reset h1 to default gameName text:
 		$(h1).text(gameName);
 
@@ -155,14 +153,14 @@ $(function(){
 		$(clearBtn).addClass('btn-clear-inactive');
 
 		//reset board and square classes to ""
-		for(var i = 0; i < gridCount; i ++) {
-			$(squares[i]).removeClass();
-			$(squares[i]).html('');
+		$.each(squares, function(i, square){
+			$(square).removeClass();
+			$(square).html('');
 			//add click listeners to all squares:
-			$(squares[i]).on('click', playMove);
+			$(square).on('click', playMove);
 			//identify each square
 			squares[i].p = i;
-		}
+		});
 
 		//Reset play count, player turn to Player 1, and reset clear btn
 		plays = 0;
