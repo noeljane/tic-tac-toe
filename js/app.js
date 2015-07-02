@@ -148,7 +148,7 @@ $(function(){
 		$(h1).text(gameName);
 
 		//remove 'locked' class:
-		board.className = "";
+		$(board).removeClass();
 
 		//stop animation class from clear button:
 		$(clearBtn).removeClass();
@@ -156,11 +156,11 @@ $(function(){
 
 		//reset board and square classes to ""
 		for(var i = 0; i < gridCount; i ++) {
-			squares[i].className = "";
-			squares[i].innerHTML = "";
+			$(squares[i]).removeClass();
+			$(squares[i]).html('');
 			//add click listeners to all squares:
-			squares[i].addEventListener('click', playMove);
-			//make sure none of the board[i].p are equivalent:
+			$(squares[i]).on('click', playMove);
+			//identify each square
 			squares[i].p = i;
 		}
 
