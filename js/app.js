@@ -118,9 +118,9 @@ $(function(){
 		//Loop through square divs and attach winner/loser classes to each
 		for(i = 0; i < squares.length; i ++) {
 			if(squares[i].classList.contains(winner.id)){
-				squares[i].firstChild.className += ' winner';
+				$(squares[i]).children('i').addClass('winner');
 			} else if(squares[i].classList.contains(loser.id)) {
-				squares[i].firstChild.className += ' loser';
+				$(squares[i]).children('i').addClass('loser');
 			}
 		}
 		lockBoard();
