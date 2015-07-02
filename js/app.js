@@ -6,12 +6,13 @@ $(function(){
 	var board = $('#board');
 
 	//generate divs
-	for(i = 0; i < 9; i ++){
+	for(var i = 0; i < 9; i ++){
 		$(board).append('<div></div>');
 	}
 
 	//build the board grid collection
-	var squares = document.querySelectorAll('#board div');
+	var squares = $(board).children('div');
+
 	var gridCount = squares.length;
 
 	//create player objects, with id and name properties.
