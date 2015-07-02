@@ -57,14 +57,14 @@ $(function(){
 		what.p = who.id;
 
 		//add HTML class accordingly
-		what.className = 'played by ';
-		what.className += who.id;
+		$(what).addClass('played by');
+		$(what).addClass(who.id);
 
 		//add an 'X' or 'O' to the square
 		if(who == player1) {
-			what.innerHTML = player1.marker;
+			$(what).html(player1.marker);
 		} else {
-			what.innerHTML = player2.marker;
+			$(what).html(player2.marker);
 		}
 
 		//add 1 to number of plays:
