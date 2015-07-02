@@ -106,7 +106,7 @@ $(function(){
 	function announceWinner(player) {
 		//Change #title to read winning player
 		winner = player;
-		h1.textContent = (winner.name + ' wins!');
+		$(h1).text(winner.name + ' wins!');
 
 		//set loser:
 		if(winner == player1) {
@@ -128,7 +128,7 @@ $(function(){
 
 	//Announce Tie
 	function announceTie() {
-		h1.textContent = ("Tie game!");
+		$(h1).text("Tie game!");
 		lockBoard();
 	}
 
@@ -145,7 +145,7 @@ $(function(){
 	function initTicTacToe() {
 
 		//reset h1 to default gameName text:
-		h1.textContent = gameName;
+		$(h1).text(gameName);
 
 		//remove 'locked' class:
 		board.className = "";
